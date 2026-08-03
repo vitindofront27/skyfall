@@ -1,4 +1,22 @@
-regras de estilizaçao para saas empresarial feito com foco para controlar infrestuturas de modelos de ia
-as regras a serem seguidas sao seguidas as seguientes: 
-a cor de fundo deve seguir um padrao preto com detalhes em azul escuro ou roxo descreto algo  gamificado 
-a fonte deve seguir um padrao branco maiss discreto ou moderno 
+# Diretrizes de Estilização
+
+A identidade visual do **Skyfall** deve transmitir profissionalismo, tecnologia e confiabilidade, mantendo uma interface moderna e intuitiva voltada ao gerenciamento da infraestrutura de modelos de Inteligência Artificial.
+
+### Paleta de Cores
+- O tema principal deve adotar um **fundo predominantemente preto**, proporcionando maior contraste e reforçando a identidade tecnológica da plataforma.
+- Elementos de destaque, como botões, indicadores de status, gráficos e componentes interativos, devem utilizar **tons discretos de azul-escuro e roxo**, criando uma estética inspirada em interfaces de alta tecnologia e experiências gamificadas, sem comprometer a legibilidade ou a seriedade do ambiente corporativo.
+- Efeitos visuais, como brilhos, gradientes e sombras, devem ser utilizados com moderação para valorizar a experiência do usuário, evitando excesso de informações visuais.
+
+### Tipografia
+- A tipografia deve priorizar fontes modernas, limpas e de alta legibilidade.
+- O texto principal deve utilizar **tons de branco ou cinza-claro**, reduzindo o cansaço visual e garantindo excelente contraste com o fundo escuro.
+- A hierarquia visual deve ser clara, diferenciando títulos, subtítulos e conteúdos por meio de tamanho, peso e espaçamento, mantendo consistência em toda a interface.
+
+### Estilo da Interface
+- O design deve seguir os princípios de interfaces SaaS modernas, com foco em simplicidade, organização e produtividade.
+- Os componentes devem apresentar cantos levemente arredondados, espaçamento consistente e animações suaves para proporcionar uma navegação fluida.
+- O visual deve equilibrar uma identidade tecnológica inspirada em dashboards de monitoramento e plataformas de IA com a credibilidade esperada de uma solução empresarial.
+
+### Experiência do Usuário
+- Todas as decisões de design devem priorizar clareza, acessibilidade e eficiência operacional.
+- A interface deve facilitar a visualização e o gerenciamento da infraestrutura de modelos de IA, permitindo que informações críticas sejam identificadas rapidamente por meio de uma organização visual consistente e intuitiva.
