@@ -1,525 +1,369 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Skyfall — central de gestão de custos de Inteligência Artificial.">
+  <title>Skyfall — Gestão de IA</title>
 
-    <title>Skyfall — AI Cost Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="skyfall01.css">
 
-    <link rel="stylesheet" href="skyfall01.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#dashboard" aria-label="Skyfall, página inicial">
+        <span class="brand-orbit">S</span>
+        <span>
+          <strong>Skyfall</strong>
+          <small>AI Operations</small>
+        </span>
+      </a>
 
-    <aside class="sidebar">
+      <div class="workspace">
+        <span class="workspace-dot"></span>
+        <span>Acme Labs</span>
+        <button aria-label="Trocar espaço de trabalho">⌄</button>
+      </div>
 
-        <div class="logo">
-            <div class="logo-icon">S</div>
+      <p class="nav-label">VISÃO GERAL</p>
 
-            <div>
-                <strong>Skyfall</strong>
-                <span>AI Management</span>
-            </div>
+      <nav aria-label="Navegação principal">
+        <a class="active" href="#dashboard"><i>◈</i><span>Dashboard</span></a>
+        <a href="#gastos"><i>◫</i><span>Custos</span></a>
+        <a href="#modelos"><i>✦</i><span>Modelos IA</span></a>
+        <a href="#assinaturas"><i>◌</i><span>Assinaturas</span></a>
+        <a href="#projetos"><i>▦</i><span>Projetos</span></a>
+      </nav>
+
+      <p class="nav-label">GERENCIAMENTO</p>
+
+      <nav aria-label="Navegação de gerenciamento">
+        <a href="#equipe"><i>♙</i><span>Equipe</span></a>
+        <a href="#configuracoes"><i>⚙</i><span>Configurações</span></a>
+      </nav>
+
+      <section class="usage-card" aria-label="Uso do plano">
+        <div>
+          <span>Plano Pro</span>
+          <b>68%</b>
         </div>
 
-        <div class="menu-title">MENU</div>
+        <div class="usage-track"><i></i></div>
 
-        <nav>
-            <a href="#" class="active">
-                <span>⌂</span>
-                Dashboard
-            </a>
+        <small>R$ 1.284 de R$ 1.875</small>
+        <button data-toast="Gerenciamento de plano disponível em breve.">
+          Gerenciar plano
+        </button>
+      </section>
 
-            <a href="#">
-                <span>◈</span>
-                Gastos
-            </a>
-
-            <a href="#">
-                <span>✦</span>
-                Modelos IA
-            </a>
-
-            <a href="#">
-                <span>◉</span>
-                Assinaturas
-            </a>
-
-            <a href="#">
-                <span>▦</span>
-                Projetos
-            </a>
-
-            <a href="#">
-                <span>♙</span>
-                Equipe
-            </a>
-        </nav>
-
-        <div class="menu-title">GERENCIAMENTO</div>
-
-        <nav>
-            <a href="#">
-                <span>⚙</span>
-                Configurações
-            </a>
-
-            <a href="#">
-                <span>?</span>
-                Ajuda
-            </a>
-        </nav>
-
-        <div class="sidebar-bottom">
-            <div class="user">
-                <div class="avatar">VH</div>
-
-                <div>
-                    <strong>Vitor Henrique</strong>
-                    <span>Administrador</span>
-                </div>
-
-                <button>⋮</button>
-            </div>
+      <div class="profile">
+        <div class="avatar">VH</div>
+        <div>
+          <strong>Vitor Henrique</strong>
+          <small>Administrador</small>
         </div>
-
+        <button aria-label="Abrir opções de perfil">•••</button>
+      </div>
     </aside>
 
-
-    <main>
-
-        <header class="topbar">
-
-            <div class="mobile-logo">
-                <div class="logo-icon">S</div>
-                <strong>Skyfall</strong>
-            </div>
-
-            <div class="search">
-                <span>⌕</span>
-                <input
-                    type="text"
-                    placeholder="Pesquisar..."
-                    id="searchInput"
-                >
-                <kbd>Ctrl K</kbd>
-            </div>
-
-            <div class="top-actions">
-
-                <button class="icon-button" id="notificationButton">
-                    ♢
-                    <span class="notification-dot"></span>
-                </button>
-
-                <div class="top-avatar">VH</div>
-
-            </div>
-
-        </header>
-
-
-        <div class="content">
-
-            <section class="welcome">
-
-                <div>
-                    <p class="welcome-label">VISÃO GERAL</p>
-
-                    <h1>Olá, Vitor 👋</h1>
-
-                    <p>
-                        Acompanhe e controle os custos da sua infraestrutura de IA.
-                    </p>
-                </div>
-
-                <button class="date-button">
-                    ▣
-                    Julho 2026
-                    <span>⌄</span>
-                </button>
-
-            </section>
-
-
-            <!-- CARDS -->
-
-            <section class="stats">
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-                        <span>Gasto total</span>
-                        <div class="stat-icon purple">R$</div>
-                    </div>
-
-                    <h2>R$ 1.284,90</h2>
-
-                    <div class="stat-bottom positive">
-                        ↑ 8,4%
-                        <span>vs. mês anterior</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-                        <span>Tokens utilizados</span>
-                        <div class="stat-icon blue">✦</div>
-                    </div>
-
-                    <h2>8,42M</h2>
-
-                    <div class="stat-bottom positive">
-                        ↑ 12,7%
-                        <span>vs. mês anterior</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-                        <span>Ferramentas ativas</span>
-                        <div class="stat-icon cyan">AI</div>
-                    </div>
-
-                    <h2>08</h2>
-
-                    <div class="stat-bottom">
-                        <span>6 em uso atualmente</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-card">
-
-                    <div class="stat-top">
-                        <span>Orçamento mensal</span>
-                        <div class="stat-icon green">✓</div>
-                    </div>
-
-                    <h2>68,4%</h2>
-
-                    <div class="progress">
-                        <div></div>
-                    </div>
-
-                    <div class="stat-bottom">
-                        <span>R$ 1.284 de R$ 1.875</span>
-                    </div>
-
-                </div>
-
-            </section>
-
-
-            <!-- GRÁFICO + ALERTAS -->
-
-            <section class="grid-main">
-
-                <div class="panel chart-panel">
-
-                    <div class="panel-header">
-
-                        <div>
-                            <h3>Despesas</h3>
-                            <p>Visão geral dos gastos com IA</p>
-                        </div>
-
-                        <select id="chartPeriod">
-                            <option>Últimos 6 meses</option>
-                            <option>Últimos 12 meses</option>
-                        </select>
-
-                    </div>
-
-                    <div class="chart-container">
-                        <canvas id="expensesChart"></canvas>
-                    </div>
-
-                </div>
-
-
-                <div class="panel alerts-panel">
-
-                    <div class="panel-header">
-
-                        <div>
-                            <h3>Alertas</h3>
-                            <p>Requer sua atenção</p>
-                        </div>
-
-                        <span class="alert-count">3</span>
-
-                    </div>
-
-
-                    <div class="alert-item warning">
-
-                        <div class="alert-icon">!</div>
-
-                        <div>
-                            <strong>Consumo elevado</strong>
-                            <p>OpenAI está 23% acima da média.</p>
-                            <small>Há 2 horas</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="alert-item info">
-
-                        <div class="alert-icon">↻</div>
-
-                        <div>
-                            <strong>Renovação próxima</strong>
-                            <p>Cursor será renovado em 3 dias.</p>
-                            <small>Ontem</small>
-                        </div>
-
-                    </div>
-
-
-                    <div class="alert-item danger">
-
-                        <div class="alert-icon">↑</div>
-
-                        <div>
-                            <strong>Gasto inesperado</strong>
-                            <p>Projeto Apollo aumentou 31%.</p>
-                            <small>Há 2 dias</small>
-                        </div>
-
-                    </div>
-
-
-                    <button class="view-all">
-                        Ver todos os alertas →
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- FERRAMENTAS -->
-
-            <section class="panel tools-panel">
-
-                <div class="panel-header">
-
-                    <div>
-                        <h3>Uso por ferramenta</h3>
-                        <p>Veja onde seu orçamento está sendo utilizado.</p>
-                    </div>
-
-                    <button class="primary-button" id="addTool">
-                        + Adicionar ferramenta
-                    </button>
-
-                </div>
-
-
-                <div class="table-wrapper">
-
-                    <table>
-
-                        <thead>
-                            <tr>
-                                <th>FERRAMENTA</th>
-                                <th>CONSUMO</th>
-                                <th>GASTO</th>
-                                <th>VARIAÇÃO</th>
-                                <th>STATUS</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <div class="tool-name">
-                                        <div class="tool-logo openai">AI</div>
-
-                                        <div>
-                                            <strong>OpenAI</strong>
-                                            <span>GPT-4 / GPT-4o</span>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>4,82M tokens</td>
-
-                                <td>
-                                    <strong>R$ 584,20</strong>
-                                </td>
-
-                                <td class="positive">+14,2%</td>
-
-                                <td>
-                                    <span class="status active-status">
-                                        ● Ativo
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button class="more">•••</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <div class="tool-name">
-                                        <div class="tool-logo cursor">C</div>
-
-                                        <div>
-                                            <strong>Cursor</strong>
-                                            <span>Pro</span>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>2 usuários</td>
-
-                                <td>
-                                    <strong>R$ 120,00</strong>
-                                </td>
-
-                                <td class="negative">+2,1%</td>
-
-                                <td>
-                                    <span class="status active-status">
-                                        ● Ativo
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button class="more">•••</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <div class="tool-name">
-                                        <div class="tool-logo github">GH</div>
-
-                                        <div>
-                                            <strong>GitHub Copilot</strong>
-                                            <span>Business</span>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>5 usuários</td>
-
-                                <td>
-                                    <strong>R$ 185,00</strong>
-                                </td>
-
-                                <td class="positive">+5,7%</td>
-
-                                <td>
-                                    <span class="status active-status">
-                                        ● Ativo
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button class="more">•••</button>
-                                </td>
-                            </tr>
-
-
-                            <tr>
-                                <td>
-                                    <div class="tool-name">
-                                        <div class="tool-logo gemini">G</div>
-
-                                        <div>
-                                            <strong>Google Gemini</strong>
-                                            <span>API</span>
-                                        </div>
-                                    </div>
-                                </td>
-
-                                <td>2,80M tokens</td>
-
-                                <td>
-                                    <strong>R$ 95,70</strong>
-                                </td>
-
-                                <td class="positive">+1,8%</td>
-
-                                <td>
-                                    <span class="status active-status">
-                                        ● Ativo
-                                    </span>
-                                </td>
-
-                                <td>
-                                    <button class="more">•••</button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-
-                    </table>
-
-                </div>
-
-                <button class="view-all tools-link">
-                    Ver todas as ferramentas →
-                </button>
-
-            </section>
-
-
-            <!-- RECOMENDAÇÃO -->
-
-            <section class="recommendation">
-
-                <div class="recommend-icon">✦</div>
-
-                <div>
-                    <span>INSIGHT DO SKYFALL</span>
-
-                    <h3>
-                        Você pode economizar até R$ 187 este mês.
-                    </h3>
-
-                    <p>
-                        Identificamos oportunidades de otimização no uso da OpenAI
-                        e do Google Gemini.
-                    </p>
-                </div>
-
-                <button>
-                    Ver recomendações →
-                </button>
-
-            </section>
-
+    <main id="dashboard">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle" aria-controls="sidebar" aria-expanded="false">
+          ☰
+        </button>
+
+        <label class="search">
+          <span>⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            placeholder="Buscar ferramentas, projetos..."
+            autocomplete="off"
+          >
+          <kbd>Ctrl K</kbd>
+        </label>
+
+        <div class="top-actions">
+          <button class="icon-button" id="themeButton" aria-label="Alternar intensidade visual">
+            ◐
+          </button>
+
+          <button class="icon-button notification" id="notificationButton" aria-label="Ver notificações">
+            ♧
+            <i></i>
+          </button>
+
+          <div class="avatar top-avatar">VH</div>
         </div>
+      </header>
 
+      <div class="content">
+        <section class="hero">
+          <div>
+            <p class="eyebrow"><span></span> JULHO DE 2026</p>
+            <h1>Visão financeira da sua <em>IA.</em></h1>
+            <p class="hero-copy">
+              Acompanhe custos, consumo e oportunidades de otimização em um só lugar.
+            </p>
+          </div>
+
+          <div class="hero-actions">
+            <button class="secondary-button">▣ &nbsp; 01 — 31 Jul, 2026</button>
+            <button class="primary-button" id="addTool">＋ Conectar ferramenta</button>
+          </div>
+        </section>
+
+        <section class="metrics" aria-label="Resumo de métricas">
+          <article class="metric-card">
+            <header>
+              <span>Gasto total</span>
+              <b class="metric-icon violet">R$</b>
+            </header>
+
+            <strong>R$ 1.284,90</strong>
+
+            <footer>
+              <b class="positive">↗ 8,4%</b>
+              <span>vs. mês anterior</span>
+            </footer>
+          </article>
+
+          <article class="metric-card">
+            <header>
+              <span>Tokens utilizados</span>
+              <b class="metric-icon blue">✦</b>
+            </header>
+
+            <strong>8,42M</strong>
+
+            <footer>
+              <b class="positive">↗ 12,7%</b>
+              <span>vs. mês anterior</span>
+            </footer>
+          </article>
+
+          <article class="metric-card">
+            <header>
+              <span>Ferramentas ativas</span>
+              <b class="metric-icon cyan">AI</b>
+            </header>
+
+            <strong>08</strong>
+
+            <footer>
+              <span><b class="live-dot"></b> 6 em uso agora</span>
+            </footer>
+          </article>
+
+          <article class="metric-card budget">
+            <header>
+              <span>Orçamento mensal</span>
+              <b class="metric-icon green">✓</b>
+            </header>
+
+            <strong>68,4%</strong>
+
+            <div class="progress"><i></i></div>
+
+            <footer>
+              <span>R$ 1.284 de R$ 1.875</span>
+              <b>32% livre</b>
+            </footer>
+          </article>
+        </section>
+
+        <section class="dashboard-grid">
+          <article class="panel expenses-panel">
+            <header class="panel-header">
+              <div>
+                <p class="eyebrow">DESEMPENHO</p>
+                <h2>Despesas mensais</h2>
+                <p class="panel-subtitle">
+                  R$ 1.284,90 <span class="positive">↗ 8,4%</span>
+                </p>
+              </div>
+
+              <select id="chartPeriod" aria-label="Período do gráfico">
+                <option value="6">Últimos 6 meses</option>
+                <option value="12">Últimos 12 meses</option>
+              </select>
+            </header>
+
+            <div class="chart-container">
+              <canvas id="expensesChart"></canvas>
+            </div>
+          </article>
+
+          <article class="panel alerts-panel">
+            <header class="panel-header">
+              <div>
+                <p class="eyebrow">ATENÇÃO</p>
+                <h2>Alertas recentes</h2>
+              </div>
+
+              <button class="text-button" data-toast="Todos os alertas foram selecionados.">
+                Ver todos
+              </button>
+            </header>
+
+            <div class="alert-list">
+              <article class="alert warning">
+                <b>!</b>
+                <div>
+                  <strong>Consumo acima da média</strong>
+                  <p>OpenAI está 23% acima do esperado.</p>
+                  <small>Há 2 horas</small>
+                </div>
+              </article>
+
+              <article class="alert info">
+                <b>↻</b>
+                <div>
+                  <strong>Renovação próxima</strong>
+                  <p>Cursor será renovado em 3 dias.</p>
+                  <small>Ontem</small>
+                </div>
+              </article>
+
+              <article class="alert danger">
+                <b>↗</b>
+                <div>
+                  <strong>Gasto inesperado</strong>
+                  <p>Projeto Apollo aumentou 31%.</p>
+                  <small>Há 2 dias</small>
+                </div>
+              </article>
+            </div>
+          </article>
+        </section>
+
+        <section class="panel tools-panel" id="gastos">
+          <header class="panel-header">
+            <div>
+              <p class="eyebrow">DETALHAMENTO</p>
+              <h2>Uso por ferramenta</h2>
+              <p class="panel-subtitle">Onde o seu orçamento está sendo utilizado.</p>
+            </div>
+
+            <button class="text-button" data-toast="Relatório de ferramentas disponível em breve.">
+              Ver relatório →
+            </button>
+          </header>
+
+          <div class="table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>FERRAMENTA</th>
+                  <th>CONSUMO</th>
+                  <th>GASTO</th>
+                  <th>VARIAÇÃO</th>
+                  <th>STATUS</th>
+                  <th></th>
+                </tr>
+              </thead>
+
+              <tbody id="toolsBody">
+                <tr>
+                  <td>
+                    <div class="tool-name">
+                      <b class="tool-logo openai">AI</b>
+                      <div>
+                        <strong>OpenAI</strong>
+                        <small>GPT-4o · API</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>4,82M tokens</td>
+                  <td><strong>R$ 584,20</strong></td>
+                  <td class="positive">+14,2%</td>
+                  <td><span class="status"><i></i> Ativo</span></td>
+                  <td><button class="more" data-toast="Opções da ferramenta OpenAI.">•••</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="tool-name">
+                      <b class="tool-logo cursor">C</b>
+                      <div>
+                        <strong>Cursor</strong>
+                        <small>Pro · 2 usuários</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>2 usuários</td>
+                  <td><strong>R$ 120,00</strong></td>
+                  <td class="negative">+2,1%</td>
+                  <td><span class="status"><i></i> Ativo</span></td>
+                  <td><button class="more" data-toast="Opções da ferramenta Cursor.">•••</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="tool-name">
+                      <b class="tool-logo github">GH</b>
+                      <div>
+                        <strong>GitHub Copilot</strong>
+                        <small>Business · 5 usuários</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>5 usuários</td>
+                  <td><strong>R$ 185,00</strong></td>
+                  <td class="positive">+5,7%</td>
+                  <td><span class="status"><i></i> Ativo</span></td>
+                  <td><button class="more" data-toast="Opções da ferramenta GitHub Copilot.">•••</button></td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <div class="tool-name">
+                      <b class="tool-logo gemini">G</b>
+                      <div>
+                        <strong>Google Gemini</strong>
+                        <small>1.5 Pro · API</small>
+                      </div>
+                    </div>
+                  </td>
+                  <td>2,80M tokens</td>
+                  <td><strong>R$ 95,70</strong></td>
+                  <td class="positive">+1,8%</td>
+                  <td><span class="status"><i></i> Ativo</span></td>
+                  <td><button class="more" data-toast="Opções da ferramenta Google Gemini.">•••</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="insight">
+          <div class="insight-icon">✦</div>
+
+          <div>
+            <p class="eyebrow">INSIGHT DO SKYFALL</p>
+            <h2>Você pode economizar até <em>R$ 187</em> este mês.</h2>
+            <p>Identificamos oportunidades de otimização no uso da OpenAI e do Google Gemini.</p>
+          </div>
+
+          <button data-toast="Recomendações abertas.">
+            Ver recomendações <span>→</span>
+          </button>
+        </section>
+      </div>
     </main>
+  </div>
 
+  <div class="toast" id="toast" role="status">
+    <b>Skyfall</b>
+    <span>Pronto.</span>
+  </div>
 
-    <div class="toast" id="toast">
-        <strong>Skyfall</strong>
-        <span>Funcionalidade em desenvolvimento.</span>
-    </div>
-
-
-    <script src="skyfall01.js"></script>
-
+  <script src="skyfall01.js"></script>
 </body>
 </html>
